@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by saipkri on 16/08/17.
  */
 @RestController("api")
-@Api("Image scanner Rest API")
-public class ImgScannerApi {
+@Api("Image decoder Rest API")
+public class ImgDecoderApi {
 
     @ApiOperation("Scans the base 64 encoded images in the payload (QR, BAR and Device Plate), decodes them and gets the textual (structured) information back.")
     @PostMapping(value = "/text", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -27,7 +27,7 @@ public class ImgScannerApi {
         }
         if (StringUtils.isNotBlank(images.getBarCodeBase64())) {
             String barText = QRUtil.decode(java.util.Base64.getDecoder().decode(images.getBarCodeBase64()));
-            result.setQrCodeText(barText);
+            result.setBarCodeText(barText);
         }
 
         // TODO implement Device plate
