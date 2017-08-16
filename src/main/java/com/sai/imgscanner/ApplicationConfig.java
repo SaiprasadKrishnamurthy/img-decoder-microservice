@@ -29,7 +29,7 @@ public class ApplicationConfig {
     @Bean
     public Docket resolverApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("image-scanner-microservice")
+                .groupName("image-decoder-microservice")
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.any())
@@ -39,8 +39,8 @@ public class ApplicationConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Image Scanner REST API")
-                .description("REST API to scan and recogonize various images such as QR codes, Bar codes and Device Plates.")
+                .title("Image DEcoder REST API")
+                .description("REST API to decode and recogonize various images such as QR codes, Bar codes and Device Plates.")
                 .version("1.0-SNAPSHOT")
                 .build();
     }
